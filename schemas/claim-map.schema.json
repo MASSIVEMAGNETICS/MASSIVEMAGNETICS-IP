@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://massivemagnetics.example/schemas/claim-map.schema.json",
+  "title": "MASSIVEMAGNETICS-IP Claim Map",
+  "type": "object",
+  "required": ["record_type", "schema_version", "claim_id", "invention_id", "claim_text", "supporting_disclosures", "implementation_evidence", "closest_prior_art", "differentiating_mechanism", "measurable_advantage", "status", "reviewed_by_counsel"],
+  "properties": {
+    "record_type": {"const": "claim_map"},
+    "schema_version": {"const": "MMIP-CLAIM-1"},
+    "claim_id": {"type": "string", "minLength": 2},
+    "invention_id": {"type": "string", "pattern": "^MMIP-[0-9]{4}-[0-9]{4,}$"},
+    "claim_text": {"type": "string"},
+    "supporting_disclosures": {"type": "array"},
+    "implementation_evidence": {"type": "array"},
+    "closest_prior_art": {"type": "array"},
+    "differentiating_mechanism": {"type": "string"},
+    "measurable_advantage": {"type": "object"},
+    "status": {"enum": ["draft_private", "technical_review", "counsel_review", "filed", "published", "abandoned"]},
+    "reviewed_by_counsel": {"type": "boolean"}
+  }
+}
+

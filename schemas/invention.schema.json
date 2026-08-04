@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://massivemagnetics.example/schemas/invention.schema.json",
+  "title": "MASSIVEMAGNETICS-IP Invention Record",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["record_type", "schema_version", "invention_id", "title", "status", "inventors", "dates", "problem", "proposed_invention", "novel_elements", "prior_art", "evidence", "claims", "disclosure_policy", "lineage"],
+  "properties": {
+    "record_type": {"const": "invention"},
+    "schema_version": {"const": "MMIP-INVENTION-1"},
+    "invention_id": {"type": "string", "pattern": "^MMIP-[0-9]{4}-[0-9]{4,}$"},
+    "title": {"type": "string", "minLength": 1},
+    "status": {"enum": ["draft_private", "active_research", "validated", "patent_review", "trade_secret", "published", "licensed", "abandoned", "superseded"]},
+    "inventors": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "contributors": {"type": "array", "items": {"type": "object"}},
+    "dates": {
+      "type": "object",
+      "required": ["first_conception", "first_documented", "first_implementation", "first_public_disclosure"],
+      "properties": {
+        "first_conception": {"type": "string", "format": "date"},
+        "first_documented": {"type": "string", "format": "date"},
+        "first_implementation": {"type": ["string", "null"], "format": "date"},
+        "first_public_disclosure": {"type": ["string", "null"], "format": "date"}
+      }
+    },
+    "problem": {"type": "object", "required": ["description"]},
+    "proposed_invention": {"type": "object", "required": ["summary"]},
+    "novel_elements": {"type": "array", "items": {"type": "string"}},
+    "prior_art": {"type": "object", "required": ["searched", "closest_matches", "differentiators", "review_complete"]},
+    "evidence": {"type": "object", "required": ["source_documents", "commits", "experiments", "diagrams", "witnesses"]},
+    "claims": {"type": "object", "required": ["provisional"]},
+    "disclosure_policy": {
+      "type": "object",
+      "required": ["public_release_allowed", "patent_review_required", "patent_review_complete", "trade_secret_candidate"],
+      "properties": {
+        "public_release_allowed": {"type": "boolean"},
+        "patent_review_required": {"type": "boolean"},
+        "patent_review_complete": {"type": "boolean"},
+        "trade_secret_candidate": {"type": "boolean"}
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "required": ["parent_inventions", "child_inventions", "supersedes"],
+      "properties": {
+        "parent_inventions": {"type": "array", "items": {"type": "string"}},
+        "child_inventions": {"type": "array", "items": {"type": "string"}},
+        "supersedes": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}
+

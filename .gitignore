@@ -1,0 +1,16 @@
+.mmip/
+.mmip-*/
+*.py[cod]
+__pycache__/
+.pytest_cache/
+.coverage
+dist/
+build/
+*.egg-info/
+.env
+.env.*
+*.pem
+*.key
+vault/
+private/
+

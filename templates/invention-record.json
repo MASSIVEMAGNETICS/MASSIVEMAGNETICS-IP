@@ -1,0 +1,43 @@
+{
+  "record_type": "invention",
+  "schema_version": "MMIP-INVENTION-1",
+  "invention_id": "MMIP-YYYY-NNNN",
+  "title": "PRIVATE INVENTION TITLE",
+  "status": "draft_private",
+  "inventors": ["INVENTOR NAME"],
+  "contributors": [],
+  "dates": {
+    "first_conception": "YYYY-MM-DD",
+    "first_documented": "YYYY-MM-DD",
+    "first_implementation": null,
+    "first_public_disclosure": null
+  },
+  "problem": {"description": ""},
+  "proposed_invention": {"summary": ""},
+  "novel_elements": [],
+  "prior_art": {
+    "searched": [],
+    "closest_matches": [],
+    "differentiators": [],
+    "review_complete": false
+  },
+  "evidence": {
+    "source_documents": [],
+    "commits": [],
+    "experiments": [],
+    "diagrams": [],
+    "witnesses": []
+  },
+  "claims": {"provisional": []},
+  "disclosure_policy": {
+    "public_release_allowed": false,
+    "patent_review_required": true,
+    "patent_review_complete": false,
+    "trade_secret_candidate": true
+  },
+  "lineage": {
+    "parent_inventions": [],
+    "child_inventions": [],
+    "supersedes": []
+  }
+}

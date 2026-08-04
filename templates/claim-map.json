@@ -1,0 +1,20 @@
+{
+  "record_type": "claim_map",
+  "schema_version": "MMIP-CLAIM-1",
+  "claim_id": "CLM-MMIP-YYYY-NNNN-001",
+  "invention_id": "MMIP-YYYY-NNNN",
+  "claim_text": "",
+  "supporting_disclosures": [],
+  "implementation_evidence": [],
+  "closest_prior_art": [],
+  "differentiating_mechanism": "",
+  "measurable_advantage": {
+    "metric": "",
+    "baseline": null,
+    "result": null,
+    "experiment_ids": []
+  },
+  "status": "draft_private",
+  "reviewed_by_counsel": false
+}
+
