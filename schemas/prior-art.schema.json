@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://massivemagnetics.example/schemas/prior-art.schema.json",
+  "title": "MASSIVEMAGNETICS-IP Prior-Art Comparison",
+  "type": "object",
+  "required": ["record_type", "schema_version", "comparison_id", "invention_id", "searched_at", "searched_by", "sources", "query_log", "candidate", "relationship", "shared_elements", "differentiators", "claim_implications", "review_status"],
+  "properties": {
+    "record_type": {"const": "prior_art_comparison"},
+    "schema_version": {"const": "MMIP-PRIOR-ART-1"},
+    "comparison_id": {"type": "string", "minLength": 2},
+    "invention_id": {"type": "string", "pattern": "^MMIP-[0-9]{4}-[0-9]{4,}$"},
+    "searched_at": {"type": "string", "format": "date-time"},
+    "searched_by": {"type": "string", "minLength": 1},
+    "sources": {"type": "array", "items": {"type": "string"}},
+    "query_log": {"type": "array", "items": {"type": "object"}},
+    "candidate": {"type": "object"},
+    "relationship": {"enum": ["identical", "overlapping", "adjacent", "influential", "independently_developed", "materially_different"]},
+    "shared_elements": {"type": "array"},
+    "differentiators": {"type": "array"},
+    "claim_implications": {"type": "array"},
+    "review_status": {"enum": ["unverified", "reviewed", "counsel_reviewed"]}
+  }
+}
+

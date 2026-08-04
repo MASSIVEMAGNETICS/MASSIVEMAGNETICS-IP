@@ -1,0 +1,24 @@
+{
+  "record_type": "prior_art_comparison",
+  "schema_version": "MMIP-PRIOR-ART-1",
+  "comparison_id": "PA-MMIP-YYYY-NNNN-001",
+  "invention_id": "MMIP-YYYY-NNNN",
+  "searched_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "searched_by": "REVIEWER NAME",
+  "sources": ["patents", "academic_papers", "technical_documentation", "open_source", "product_literature", "historical_systems"],
+  "query_log": [],
+  "candidate": {
+    "title": "",
+    "identifier": "",
+    "url": "",
+    "publication_date": null,
+    "authors_or_assignee": []
+  },
+  "relationship": "adjacent",
+  "allowed_relationships": ["identical", "overlapping", "adjacent", "influential", "independently_developed", "materially_different"],
+  "shared_elements": [],
+  "differentiators": [],
+  "claim_implications": [],
+  "review_status": "unverified"
+}
+

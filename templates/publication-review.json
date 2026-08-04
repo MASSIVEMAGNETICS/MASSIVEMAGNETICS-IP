@@ -1,0 +1,20 @@
+{
+  "review_id": "PUB-MMIP-YYYY-NNNN-001",
+  "invention_id": "MMIP-YYYY-NNNN",
+  "target": "repository, paper, website, release, talk, or other concrete target",
+  "reviewer": "REVIEWER NAME",
+  "decision": "hold",
+  "checks": {
+    "internal_disclosure_complete": false,
+    "evidence_integrity_verified": false,
+    "attribution_complete": false,
+    "prior_art_review_complete": false,
+    "patent_strategy_decided": false,
+    "trade_secret_exposure_assessed": false,
+    "trade_secrets_removed": false,
+    "repository_sanitized": false
+  },
+  "notes": [],
+  "counsel_reference": null
+}
+
