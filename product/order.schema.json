@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://massivemagnetics.com/schemas/truth-compiler-audit-order-v1.json",
+  "title": "Truth Compiler Evidence Audit Order",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["order_version", "buyer", "project", "scope", "rights_affirmation", "delivery"],
+  "properties": {
+    "order_version": {"const": "TCEA-ORDER-1"},
+    "buyer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["legal_name", "email"],
+      "properties": {
+        "legal_name": {"type": "string", "minLength": 1, "maxLength": 200},
+        "organization": {"type": ["string", "null"], "maxLength": 200},
+        "email": {"type": "string", "format": "email", "maxLength": 254}
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "description", "source_transfer_method"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1, "maxLength": 200},
+        "description": {"type": "string", "minLength": 1, "maxLength": 4000},
+        "repository_url": {"type": ["string", "null"], "format": "uri"},
+        "source_transfer_method": {"enum": ["private_repository_access", "encrypted_archive", "customer_hosted_read_only"]}
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requested_claims", "source_size_bytes", "objective"],
+      "properties": {
+        "requested_claims": {"type": "integer", "minimum": 1, "maximum": 25},
+        "source_size_bytes": {"type": "integer", "minimum": 1, "maximum": 2147483648},
+        "objective": {"enum": ["publication_readiness", "investor_due_diligence", "licensing_readiness", "release_readiness", "internal_evidence_cleanup"]}
+      }
+    },
+    "rights_affirmation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authorized_to_supply", "authorized_to_audit", "contains_third_party_restrictions"],
+      "properties": {
+        "authorized_to_supply": {"const": true},
+        "authorized_to_audit": {"const": true},
+        "contains_third_party_restrictions": {"type": "boolean"},
+        "restriction_notes": {"type": ["string", "null"], "maxLength": 4000}
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["retention_days", "recipient_email"],
+      "properties": {
+        "retention_days": {"type": "integer", "minimum": 0, "maximum": 90},
+        "recipient_email": {"type": "string", "format": "email", "maxLength": 254}
+      }
+    }
+  }
+}
+

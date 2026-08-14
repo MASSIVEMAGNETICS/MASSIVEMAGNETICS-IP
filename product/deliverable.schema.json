@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://massivemagnetics.com/schemas/truth-compiler-audit-deliverable-v1.json",
+  "title": "Truth Compiler Evidence Audit Deliverable",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "case_id", "generated_at", "scope", "claims", "files", "integrity", "limitations_acknowledged"],
+  "properties": {
+    "schema_version": {"const": "TCEA-DELIVERY-1"},
+    "case_id": {"type": "string", "pattern": "^TCEA-[0-9]{4}-[0-9]{4}$"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "scope": {"type": "object"},
+    "claims": {
+      "type": "array",
+      "maxItems": 25,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim_id", "text", "status", "evidence_ids", "rationale"],
+        "properties": {
+          "claim_id": {"type": "string", "pattern": "^CLM-[0-9]{4}$"},
+          "text": {"type": "string", "minLength": 1},
+          "status": {"enum": ["VERIFIED", "ATTRIBUTED", "INFERENCE", "UNSUPPORTED", "CONFLICT"]},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "rationale": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "files": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "size_bytes"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "size_bytes": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ledger_valid", "objects_valid", "evidence_valid", "release_sanitized"],
+      "properties": {
+        "ledger_valid": {"const": true},
+        "objects_valid": {"const": true},
+        "evidence_valid": {"const": true},
+        "release_sanitized": {"const": true}
+      }
+    },
+    "limitations_acknowledged": {"const": true}
+  }
+}
+

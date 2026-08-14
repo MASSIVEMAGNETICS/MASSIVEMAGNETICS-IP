@@ -1,0 +1,20 @@
+{
+  "schema_version": "MM-COMMERCE-1",
+  "currency": "usd",
+  "offers": [
+    {
+      "sku": "TCEA-PILOT-750",
+      "name": "Truth Compiler Evidence Audit — Pilot",
+      "type": "fixed_scope_service",
+      "unit_amount": 75000,
+      "billing": "one_time",
+      "active": true,
+      "checkout_url": null,
+      "fulfillment": "manual_encrypted_delivery",
+      "scope": "One project, up to 2 GB and 25 material claims",
+      "turnaround_target_business_days": 5,
+      "stripe_activation_status": "blocked_pending_owner_authorization"
+    }
+  ]
+}
+
